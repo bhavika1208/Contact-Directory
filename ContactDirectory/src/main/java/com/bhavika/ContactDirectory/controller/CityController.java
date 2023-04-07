@@ -44,14 +44,14 @@ public class CityController {
 	}
 	
 	@GetMapping("/cities/city/{cityId}")
-	private City getCity(@PathVariable int cityId){
+	private City getCity(@PathVariable int cityId)  throws ResponseException{
 		City city = null;
 		city = cityDAOImpl.getCityById(cityId);
 		return city;
 	}
 	
 	@PostMapping("/cities")
-	private Response getCity(@RequestBody City city){
+	private Response getCity(@RequestBody City city)  throws ResponseException{
 		int res = cityDAOImpl.addCity(city);
 		if (res <= 0) {
 			throw new ResponseException("Bad Request!");
@@ -59,8 +59,5 @@ public class CityController {
 			return new Response(HttpStatus.OK.value(), "Operation Done", System.currentTimeMillis());
 		}
 	}
-
-
-//	public City addCity(City city);
 
 }
