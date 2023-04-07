@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "7166a9fe-a917-49ef-be27-aac45168a2fd",
+		"_postman_id": "296a0755-f86e-414e-a943-287759b47bf3",
 		"name": "JDBC",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -34,7 +34,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/cd/cities/city/3",
+							"raw": "http://localhost:8080/cd/cities/city/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -44,14 +44,14 @@
 								"cd",
 								"cities",
 								"city",
-								"3"
+								"2"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "GetAllCityInStateXX",
+					"name": "GetAllCityInState",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -234,7 +234,19 @@
 					"name": "GetAllContacts",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/cd/contacts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cd",
+								"contacts"
+							]
+						}
 					},
 					"response": []
 				},
@@ -242,7 +254,20 @@
 					"name": "GetContactById",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/cd/contacts/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cd",
+								"contacts",
+								"1"
+							]
+						}
 					},
 					"response": []
 				},
@@ -250,15 +275,21 @@
 					"name": "GetContactsByUser",
 					"request": {
 						"method": "GET",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "UpdateContact",
-					"request": {
-						"method": "PUT",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/cd/contacts/user/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cd",
+								"contacts",
+								"user",
+								"2"
+							]
+						}
 					},
 					"response": []
 				},
@@ -266,7 +297,56 @@
 					"name": "AddContact",
 					"request": {
 						"method": "POST",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"contactName\": \"Tom\",\n    \"favourite\": true,\n    \"userId\": 1,\n    \"profilePicture\": \"asdfghjk\",\n    \"emails\": [\n        {\n            \"emailType\": \"Tom\",\n            \"email\": \"Tom@gmail.com\"\n        }\n    ],\n    \"phones\": [\n        {\n            \"phoneType\": \"Tom1\",\n            \"phoneNo\": \"1234567i8\"\n        },\n        {\n            \"phoneType\": \"Tom2\",\n            \"phoneNo\": \"7777777777\"\n        }\n    ],\n    \"addresses\": [\n        {\n            \"addressType\": \"Tom1\",\n            \"address\": \"Tomhome\",\n            \"addressCity\": 1,\n            \"addressState\": 1,\n            \"addressPincode\": 121212\n\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/cd/contacts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cd",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateContact",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"contactId\":29,\n    \"contactName\": \"TomHolland\",\n    \"favourite\": true,\n    \"userId\": 1,\n    \"profilePicture\": \"asdfghjk\",\n    \"emails\": [\n        {\n            \"emailType\": \"TomHolland\",\n            \"email\": \"TomHolland@gmail.com\"\n        }\n    ],\n    \"phones\": [\n        {\n            \"phoneType\": \"TomHolland\",\n            \"phoneNo\": \"1234567i8\"\n        },\n        {\n            \"phoneType\": \"TomHolland2\",\n            \"phoneNo\": \"7777777777\"\n        }\n    ],\n    \"addresses\": [\n        {\n            \"addressType\": \"TomHolland\",\n            \"address\": \"TomHolland\",\n            \"addressCity\": 1,\n            \"addressState\": 1,\n            \"addressPincode\": 121212\n\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cd/contacts",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cd",
+								"contacts"
+							]
+						}
 					},
 					"response": []
 				},
@@ -274,7 +354,20 @@
 					"name": "DeleteContact",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/cd/contacts/29",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cd",
+								"contacts",
+								"29"
+							]
+						}
 					},
 					"response": []
 				}
@@ -284,18 +377,124 @@
 			"name": "User",
 			"item": [
 				{
+					"name": "GetAllUsers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/cd/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cd",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cd/users/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cd",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserByEmail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/cd/users/user/user2@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cd",
+								"users",
+								"user",
+								"user2@gmail.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "RegisterUser",
 					"request": {
 						"method": "POST",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userName\": \"user3\",\n    \"userPassword\": \"user3\",\n    \"userEmailId\": \"user3@gmail.com\",\n    \"userPhoneNo\": \"12345678\",\n    \"userAddress\": \"103\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cd/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cd",
+								"users"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "LoginUser",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userPassword\": \"user1\",\n    \"userEmailId\": \"user1@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cd/users/user",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cd",
+								"users",
+								"user"
+							]
+						}
 					},
 					"response": []
 				},
@@ -303,7 +502,28 @@
 					"name": "UpdateUser",
 					"request": {
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": 3,\n    \"userName\": \"user3.0\",\n    \"userPassword\": \"user3.0\",\n    \"userEmailId\": \"user3.0@gmail.com\",\n    \"userAddress\": \"103.0\",\n    \"userPhoneNo\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/cd/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cd",
+								"users"
+							]
+						}
 					},
 					"response": []
 				},
@@ -311,7 +531,399 @@
 					"name": "DeleteUser",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/cd/users/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cd",
+								"users",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Emails",
+			"item": [
+				{
+					"name": "GetEmailsById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/cd/email/23",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cd",
+								"email",
+								"23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetEmailsByContactId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/cd/emails/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cd",
+								"emails",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddEmail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"emailType\": \"home\",\n    \"email\": \"c3Home@gmail.com\",\n    \"contactId\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/cd/emails",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cd",
+								"emails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateEmail",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"emailId\": 21,\n    \"emailType\": \"idk\",\n    \"email\": \"idk@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/cd/emails",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cd",
+								"emails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteEmail",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/cd/emails/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cd",
+								"emails",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Phone",
+			"item": [
+				{
+					"name": "GetPhonesById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/cd/phone/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cd",
+								"phone",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPhonesByContactId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/cd/phones/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cd",
+								"phones",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddPhone",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"contactId\": 1,\n    \"phoneType\": \"Unknown\",\n    \"phoneNo\": \"7777777777\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/cd/phones",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cd",
+								"phones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdatePhone",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"phoneId\": 5,\n    \"phoneType\": \"i know \",\n    \"phoneNo\": \"6767676767\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/cd/phones",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cd",
+								"phones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeletePhone",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/cd/phones/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cd",
+								"phones",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Address",
+			"item": [
+				{
+					"name": "GetAddressById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/cd/address/17",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cd",
+								"address",
+								"17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAddressByContactId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/cd/address/contact/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cd",
+								"address",
+								"contact",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddAddress",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"contactId\": 2,\n    \"addressType\": \"home\",\n    \"address\": \"pakfjdd\",\n    \"addressCity\": 2,\n    \"addressState\": 2,\n    \"addressPincode\": 121212\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/cd/address",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cd",
+								"address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateAddress",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"addressId\": 2,\n    \"addressType\": \"home2\",\n    \"address\": \"pakretri\",\n    \"addressCity\": 2,\n    \"addressState\": 2,\n    \"addressPincode\": 121212\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/cd/address",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cd",
+								"address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteAddress",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/cd/address/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cd",
+								"address",
+								"2"
+							]
+						}
 					},
 					"response": []
 				}
