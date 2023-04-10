@@ -18,4 +18,6 @@ public interface ContactDAO{
 	
 	public int deleteContact(int contactId);
 	
+	public int toggleFav(int contactId);
+	
 }

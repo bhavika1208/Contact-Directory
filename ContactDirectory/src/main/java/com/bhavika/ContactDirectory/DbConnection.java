@@ -17,7 +17,7 @@ public class DbConnection {
 	}
 
 	private String className = "com.mysql.cj.jdbc.Driver";
-	private String connString = "jdbc:mysql://localhost:3306/contactDirectory?useSSL=false&serverTimezone=UTC";
+	private String connString = "jdbc:mysql://localhost:3306/contactDirectory?useSSL=true&serverTimezone=UTC";
 	private String user = "CD";
 	private String password = "Password@12";
 	
@@ -29,10 +29,10 @@ public class DbConnection {
 		try {
 			Class.forName(className);
 			conn = DriverManager.getConnection(connString, user, password);
-			System.out.println(conn);
-			System.out.println("Connected");
+//			System.out.println(conn);
+//			System.out.println("Connected");
 		}catch (Exception e) {
-			System.out.println("------------------------");
+//			System.out.println("------------------------");
 			System.out.println(e.getMessage());
 		}
 	}

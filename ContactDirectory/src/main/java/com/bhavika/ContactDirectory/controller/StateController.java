@@ -2,8 +2,10 @@ package com.bhavika.ContactDirectory.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +19,7 @@ import com.bhavika.ContactDirectory.dao.impl.StateDAOImpl;
 import com.bhavika.ContactDirectory.entity.State;
 import com.bhavika.ContactDirectory.responses.Response;
 import com.bhavika.ContactDirectory.responses.ResponseException;
-
+@CrossOrigin
 @RestController
 @RequestMapping("/cd")
 public class StateController {

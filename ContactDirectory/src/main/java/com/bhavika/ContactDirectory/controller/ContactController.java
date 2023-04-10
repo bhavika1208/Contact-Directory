@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import com.bhavika.ContactDirectory.entity.Contact;
 import com.bhavika.ContactDirectory.responses.Response;
 import com.bhavika.ContactDirectory.responses.ResponseException;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/cd")
 public class ContactController {
@@ -78,6 +80,16 @@ public class ContactController {
 	@DeleteMapping("/contacts/{contactId}")
 	private Response deleteContact(@PathVariable int contactId)  throws ResponseException {
 		int res = contactDAOImpl.deleteContact(contactId);
+		if (res <= 0) {
+			throw new ResponseException("Bad Request!");
+		} else {
+			return new Response(HttpStatus.OK.value(), "Operation Done", System.currentTimeMillis());
+		}
+	}
+	
+	@PutMapping("/contacts/favourite/{contactId}")
+	private Response toggleFavourite(@PathVariable int contactId) throws ResponseException{
+		int res = contactDAOImpl.toggleFav(contactId);
 		if (res <= 0) {
 			throw new ResponseException("Bad Request!");
 		} else {

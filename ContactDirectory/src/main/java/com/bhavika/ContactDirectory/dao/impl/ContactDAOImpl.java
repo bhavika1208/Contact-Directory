@@ -32,7 +32,7 @@ public class ContactDAOImpl implements ContactDAO {
 	public List<Contact> getContacts() {
 		List<Contact> theContacts = new ArrayList<>();
 		try {
-			String query = "SELECT * FROM contact";
+			String query = "SELECT * FROM contact WHERE isActive = 1";
 			PreparedStatement stmt = conn.prepareStatement(query);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
@@ -64,7 +64,7 @@ public class ContactDAOImpl implements ContactDAO {
 	public Contact getContactById(int contactId) {
 		Contact contact = null;
 		try {
-			String query = "SELECT * FROM contact WHERE contactId = ?";
+			String query = "SELECT * FROM contact WHERE contactId = ? AND isActive = 1";
 			PreparedStatement stmt = conn.prepareStatement(query);
 			stmt.setInt(1, contactId);
 			ResultSet rs = stmt.executeQuery();
@@ -94,7 +94,7 @@ public class ContactDAOImpl implements ContactDAO {
 	public List<Contact> getContactsByUser(int userId) {
 		List<Contact> theContacts = new ArrayList<>();
 		try {
-			String query = "SELECT * FROM contact WHERE userId = ?";
+			String query = "SELECT * FROM contact WHERE userId = ? AND isActive = 1";
 			PreparedStatement stmt = conn.prepareStatement(query);
 			stmt.setInt(1, userId);
 			ResultSet rs = stmt.executeQuery();
@@ -214,6 +214,19 @@ public class ContactDAOImpl implements ContactDAO {
 			return a;
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
+		}
+		return 0;
+	}
+	
+	@Override
+	public int toggleFav(int contactId){
+		
+		try{
+			String query = "UPDATE contact SET isFavourite = NOT isFavourite WHERE contactId = ?";
+			PreparedStatement stmt = conn.prepareStatement(query);
+			stmt.setInt(1, contactId);
+			return stmt.executeUpdate();
+		}catch (Exception e) {
 		}
 		return 0;
 	}
